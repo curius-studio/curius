@@ -1,8 +1,10 @@
+import { AppLayout } from "../layout";
+
 function AppCore() {
   return (
-    <div>
-      {/* Core mínimo: placeholder de arranque */}
-    </div>
+    <AppLayout>
+      {/* Punto donde se renderizarán las páginas en el futuro */}
+    </AppLayout>
   );
 }
 
