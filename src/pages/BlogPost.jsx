@@ -36,9 +36,7 @@ function BlogPost() {
       <h1>{post.title}</h1>
       <small>{post.date.toDateString()}</small>
 
-      <ReactMarkdown>
-        {post.content}
-      </ReactMarkdown>
+      <ReactMarkdown>{post.content}</ReactMarkdown>
     </article>
   );
 }

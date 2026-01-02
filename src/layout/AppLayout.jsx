@@ -1,21 +1,17 @@
+import { Link } from "react-router-dom";
+
 /**
  * Layout base de la aplicación.
  *
- * Define la estructura visual global:
- * - Navbar
- * - Contenido principal
- * - Footer
- *
- * No contiene lógica de negocio ni estilos finales.
+ * Define la estructura semántica global:
+ * header, nav, main y footer.
  */
-
-import { Link } from "react-router-dom";
 
 function AppLayout({ children }) {
   return (
-    <div>
+    <>
       <header>
-        <nav>
+        <nav aria-label="Navegación principal">
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -33,12 +29,14 @@ function AppLayout({ children }) {
         </nav>
       </header>
 
-      <main>{children}</main>
+      <main id="main-content">
+        {children}
+      </main>
 
       <footer>
-        {/* Footer placeholder */}
+        <p>© Curius</p>
       </footer>
-    </div>
+    </>
   );
 }
 
