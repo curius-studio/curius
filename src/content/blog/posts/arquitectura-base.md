@@ -2,7 +2,7 @@
 title: Arquitectura base del proyecto
 date: 2024-01-15
 excerpt: Introducción a la arquitectura inicial del proyecto.
-thumbnail: /images/img1.png
+thumbnail: img1.jpg
 ---
 
 # Arquitectura base del proyecto

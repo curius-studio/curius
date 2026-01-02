@@ -32,13 +32,22 @@ export function loadPosts() {
     );
 
     const filename = path.split("/").pop().replace(".md", "");
+    
+    let thumbnail;
+
+    if (metadata.thumbnail) {
+      thumbnail = new URL(
+        `./images/${metadata.thumbnail}`,
+        import.meta.url
+      ).href;
+    }
 
     return {
-      slug: slugify(filename), // ahora viene del nombre del archivo
+      slug: filename,
       title: metadata.title,
       excerpt: metadata.excerpt,
       date: new Date(metadata.date),
-      thumbnail: metadata.thumbnail || undefined,
+      thumbnail,
       content: content.trim(),
     };
   });
