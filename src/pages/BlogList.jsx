@@ -5,13 +5,19 @@
  * usando rutas explícitas.
  */
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { posts } from "../content/blog";
+import { setTitle, setDescription } from "../utils/seo";
 
 const POSTS_PER_PAGE = 2;
 
 function BlogList() {
+  useEffect(() => {
+    setTitle("Contenido | Curius");
+    setDescription("Listado de contenidos y publicaciones del sitio.");
+  }, []);
+
   const [page, setPage] = useState(1);
 
   const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
@@ -20,7 +26,7 @@ function BlogList() {
 
   return (
     <section>
-      <h1>Blog</h1>
+      <h1>Contenido</h1>
       <p>Total de posts: {posts.length}</p>
 
       <ul>

@@ -1,18 +1,16 @@
-import BotonSolido from "../components/BotonSolido/BotonSolido";
+import { useEffect } from "react";
+import { setTitle, setDescription } from "../utils/seo";
 
 function Home() {
+  useEffect(() => {
+    setTitle("Inicio | Curius");
+    setDescription("Página principal del sitio Curius.");
+  }, []);
+  
   return (
     <section>
       <h1>Home</h1>
-      <p>Página de inicio (contenido provisional).</p>
-
-      <BotonSolido
-        texto="Framework"
-        badge="new"
-        modo="oscuro"
-        style={{ padding: '10px 14px' }}
-        onClick={() => console.log('click')}
-      />
+      <p>Página de inicio.</p>
     </section>
   );
 }
