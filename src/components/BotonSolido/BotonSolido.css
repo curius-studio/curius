@@ -1,0 +1,104 @@
+.boton-solido {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  /* ❌ SIN padding: lo define quien lo use */
+  padding: 0;
+
+  border-radius: 10px;
+  border: none;
+
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+/* =========================
+   MODOS
+========================= */
+
+/* 🌞 Claro */
+.boton-solido.claro {
+  background: #ffffff;
+  color: #111;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.boton-solido.claro:hover {
+  background: #f3f3f3;
+}
+
+.boton-solido.claro:active {
+  background: #e6e6e6;
+}
+
+/* 🌚 Oscuro */
+.boton-solido.oscuro {
+  background: #1e1e1e;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+}
+
+.boton-solido.oscuro:hover {
+  background: #2a2a2a;
+}
+
+.boton-solido.oscuro:active {
+  background: #333333;
+}
+
+/* =========================
+   ALINEACIÓN
+========================= */
+
+.boton-solido.align-izquierda {
+  justify-content: flex-start;
+}
+
+.boton-solido.align-centro {
+  justify-content: center;
+}
+
+.boton-solido.align-derecha {
+  justify-content: flex-end;
+}
+
+/* =========================
+   ICONOS
+========================= */
+
+.boton-icono {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* =========================
+   BADGE
+========================= */
+
+.boton-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+
+  background: crimson;
+  color: white;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 999px;
+}
+
+/* =========================
+   DISABLED
+========================= */
+
+.boton-solido.disabled,
+.boton-solido:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
