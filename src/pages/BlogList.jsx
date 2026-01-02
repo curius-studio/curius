@@ -1,14 +1,7 @@
-/**
- * Página de listado del blog.
- *
- * Renderiza los posts y navega a cada uno
- * usando rutas explícitas.
- */
-
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { posts } from "../content/blog";
 import { setTitle, setDescription } from "../utils/seo";
+import ContentListItem from "../components/ContentListItem/ContentListItem";
 
 const POSTS_PER_PAGE = 2;
 
@@ -27,16 +20,17 @@ function BlogList() {
   return (
     <section>
       <h1>Contenido</h1>
-      <p>Total de posts: {posts.length}</p>
 
       <ul>
         {currentPosts.map((post) => (
-          <li key={post.slug}>
-            <Link to={`/contenido/${post.slug}`}>
-              {post.title}
-            </Link>
-            <p>{post.excerpt}</p>
-          </li>
+          <ContentListItem
+            key={post.slug}
+            title={post.title}
+            excerpt={post.excerpt}
+            slug={post.slug}
+            thumbnail={post.thumbnail}
+            date={post.date}
+          />
         ))}
       </ul>
 

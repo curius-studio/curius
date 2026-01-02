@@ -1,41 +1,34 @@
 import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
 
 /**
- * Layout base de la aplicación.
+ * AppLayout
  *
- * Define la estructura semántica global:
- * header, nav, main y footer.
+ * Orquesta la estructura global:
+ * header + navbar, main y footer.
+ * No contiene UI detallada.
  */
 
 function AppLayout({ children }) {
+  const navLinks = [
+    { label: "Inicio", to: "/" },
+    { label: "Contenido", to: "/contenido" },
+    { label: "Conócenos", to: "/conocenos" },
+    { label: "Contacto", to: "/contacto" },
+  ];
+
   return (
     <>
       <header>
-        <nav aria-label="Navegación principal">
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/contenido">Contenido</Link>
-            </li>
-            <li>
-              <Link to="/conocenos">Conócenos</Link>
-            </li>
-            <li>
-              <Link to="/contacto">Contacto</Link>
-            </li>
-          </ul>
-        </nav>
+        <Navbar links={navLinks} />
       </header>
 
       <main id="main-content">
         {children}
       </main>
 
-      <footer>
-        <p>© Curius</p>
-      </footer>
+      <Footer />
     </>
   );
 }
