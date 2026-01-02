@@ -1,5 +1,7 @@
+import { AppCore } from "./core";
+
 function App() {
-  return null;
+  return <AppCore />;
 }
 
 export default App;
