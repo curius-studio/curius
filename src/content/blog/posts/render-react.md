@@ -2,6 +2,7 @@
 title: Renderizado en React
 date: 2024-03-05
 excerpt: Cómo se gestiona el renderizado de vistas y componentes en la aplicación.
+thumbnail: /images/img3.jpg
 ---
 
 # Renderizado en React

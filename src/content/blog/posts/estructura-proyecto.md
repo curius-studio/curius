@@ -2,6 +2,7 @@
 title: Estructura del proyecto
 date: 2024-02-10
 excerpt: Descripción de la estructura base del proyecto y la separación de responsabilidades.
+thumbnail: /images/img2.jpg
 ---
 
 # Estructura del proyecto

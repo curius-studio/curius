@@ -1,12 +1,8 @@
 /**
  * Loader del contenido del blog.
  *
- * Se encarga de:
- * - Leer los archivos Markdown
- * - Extraer metadata mínima
- * - Generar slugs a partir del título
- *
- * No contiene lógica de UI.
+ * Lee archivos Markdown, extrae metadata
+ * y prepara los datos editoriales del blog.
  */
 
 function slugify(text) {
@@ -19,13 +15,13 @@ function slugify(text) {
 }
 
 export function loadPosts() {
-  const files = import.meta.glob("./*.md", {
+  const files = import.meta.glob("./posts/*.md", {
     query: "?raw",
     import: "default",
     eager: true,
   });
 
-  return Object.entries(files).map(([, raw]) => {
+  return Object.entries(files).map(([path, raw]) => {
     const [, meta, content] = raw.split("---");
 
     const metadata = Object.fromEntries(
@@ -35,11 +31,14 @@ export function loadPosts() {
         .map((line) => line.split(": ").map((s) => s.trim()))
     );
 
+    const filename = path.split("/").pop().replace(".md", "");
+
     return {
-      slug: slugify(metadata.title),
+      slug: slugify(filename), // ahora viene del nombre del archivo
       title: metadata.title,
       excerpt: metadata.excerpt,
       date: new Date(metadata.date),
+      thumbnail: metadata.thumbnail || undefined,
       content: content.trim(),
     };
   });
