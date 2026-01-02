@@ -6,6 +6,7 @@
  */
 
 import { useParams, Link } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
 import { posts } from "../content/blog";
 
 function BlogPost() {
@@ -23,7 +24,9 @@ function BlogPost() {
       <h1>{post.title}</h1>
       <small>{post.date.toDateString()}</small>
 
-      <pre>{post.content}</pre>
+      <ReactMarkdown>
+        {post.content}
+      </ReactMarkdown>
     </article>
   );
 }
